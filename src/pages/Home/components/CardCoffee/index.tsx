@@ -6,7 +6,6 @@ import {
   Name,
   Tags,
 } from "./styles";
-import coffeeAmericano from "../../../../assets/coffees/americano.png";
 import { RegularText, TitleText } from "../../../../components/Typograph";
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { ShoppingCart } from "phosphor-react";
