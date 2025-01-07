@@ -52,7 +52,7 @@ export function OrderConfirmed() {
             }
           />
         </OrderDetailsContainer>
-        <img src={ilustrationDetails} />
+        <img src="image-confirmed.svg" />
       </section>
     </OrderConfirmedContainer>
   );
