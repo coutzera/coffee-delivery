@@ -37,6 +37,8 @@ export const ActionsContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
 
+  margin-top: 0.5rem;
+
   > div {
     max-width: 4.5rem;
     height: 100%;
