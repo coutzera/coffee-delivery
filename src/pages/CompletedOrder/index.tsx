@@ -4,6 +4,8 @@ import { CompletedOrderContainer } from "./styles";
 import * as zod from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { UseCart } from "../../hooks/useCart";
 
 enum PaymentMethods {
   credit = "credit",
@@ -35,8 +37,15 @@ export function CompletedOrder() {
 
   const { handleSubmit } = confirmOrderForm;
 
+  const navigate = useNavigate();
+
+  const { cleanCart } = UseCart();
+
   function handleConfirmOrder(data: ConfirmOrderFormData) {
-    console.log(data);
+    navigate("/orderConfirmed", {
+      state: data,
+    });
+    cleanCart();
   }
 
   return (

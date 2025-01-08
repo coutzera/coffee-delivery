@@ -3,8 +3,29 @@ import { OrderConfirmedContainer, OrderDetailsContainer } from "./styles";
 import { InfoWithIcon } from "../../components/InfoWithIcon";
 import { Clock, CurrencyDollar, MapPin } from "phosphor-react";
 import { useTheme } from "styled-components";
+import { useLocation, useNavigate } from "react-router-dom";
+import { OrderData } from "../CompletedOrder";
+import { paymentMethod } from "../CompletedOrder/components/CompleteOrderForm/PaymentOptions";
+import { useEffect } from "react";
+
+interface LocationType {
+  state: OrderData;
+}
 export function OrderConfirmed() {
   const { colors } = useTheme();
+
+  const { state } = useLocation() as unknown as LocationType;
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!state) {
+      navigate("/");
+    }
+  }, []);
+
+  if (!state) return <></>;
+
   return (
     <OrderConfirmedContainer className="container">
       <div>
@@ -18,19 +39,22 @@ export function OrderConfirmed() {
         <OrderDetailsContainer>
           <InfoWithIcon
             icon={<MapPin weight="fill" />}
-            iconBg={colors["brand-purple"]}
+            $iconBg={colors["brand-purple"]}
             text={
               <RegularText>
                 {" "}
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em{" "}
+                <strong>
+                  {state.street}, {state.number}
+                </strong>
                 <br />
-                Farrapos - Porto Alegre, RS
+                {state.district} - {state.city}, {state.uf}
               </RegularText>
             }
           />
           <InfoWithIcon
             icon={<Clock weight="fill" />}
-            iconBg={colors["brand-yellow"]}
+            $iconBg={colors["brand-yellow"]}
             text={
               <RegularText>
                 Previsão de entrega
@@ -41,12 +65,12 @@ export function OrderConfirmed() {
           />
           <InfoWithIcon
             icon={<CurrencyDollar weight="fill" />}
-            iconBg={colors["brand-yellow-dark"]}
+            $iconBg={colors["brand-yellow-dark"]}
             text={
               <RegularText>
                 Pagamento na entrega
                 <br />
-                <strong>Cartão de Crédito</strong>
+                <strong>{paymentMethod[state.paymentMethod].label}</strong>
               </RegularText>
             }
           />
