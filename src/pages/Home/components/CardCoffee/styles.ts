@@ -51,7 +51,7 @@ export const Tags = styled.div`
 export const Name = styled(TitleText).attrs({
   size: "s",
   color: "subtitle",
-  weight: 700,
+  $weight: 700,
 })`
   margin-bottom: 0.5rem;
 `;

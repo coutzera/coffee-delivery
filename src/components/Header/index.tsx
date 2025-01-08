@@ -17,13 +17,13 @@ export function Header() {
         </NavLink>
 
         <HeaderButtonsContainer>
-          <HeaderButton variant="purple">
+          <HeaderButton $variant="purple">
             <MapPin size={20} weight="fill" />
             Rio de Janeiro, RJ
           </HeaderButton>
 
           <NavLink to="/completedOrder">
-            <HeaderButton variant="yellow">
+            <HeaderButton $variant="yellow">
               {cartQuantity > 0 && <span>{cartQuantity}</span>}
               <ShoppingCart size={20} weight="fill" />
             </HeaderButton>

@@ -24,10 +24,10 @@ export function ConfirmationSection() {
         <RegularText>R$ {formattedDeliveredPrice}</RegularText>
       </div>
       <div>
-        <RegularText size="l" weight="700" color="subtitle">
+        <RegularText size="l" $weight="700" color="subtitle">
           Total
         </RegularText>
-        <RegularText size="l" weight="700" color="subtitle">
+        <RegularText size="l" $weight="700" color="subtitle">
           R$ {formattedCartTotal}
         </RegularText>
       </div>

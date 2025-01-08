@@ -3,13 +3,13 @@ import styled from "styled-components";
 interface TitleTextProps {
   color?: "title" | "subtitle" | "text";
   size?: "xl" | "l" | "m" | "s" | "xs";
-  weight?: string | number;
+  $weight?: string | number;
 }
 
 interface RegularTextProps {
   color?: "label" | "subtitle" | "text";
   size?: "l" | "m" | "s";
-  weight?: string | number;
+  $weight?: string | number;
 }
 
 export const TitleText = styled.h1<TitleTextProps>`
@@ -19,7 +19,7 @@ export const TitleText = styled.h1<TitleTextProps>`
 
   font-family: ${({ theme }) => theme.fonts.title};
   line-height: 1.3;
-  font-weight: ${({ weight }) => weight ?? 800};
+  font-weight: ${({ $weight }) => $weight ?? 800};
 `;
 
 export const RegularText = styled.p<RegularTextProps>`
@@ -29,5 +29,5 @@ export const RegularText = styled.p<RegularTextProps>`
 
   font-family: ${({ theme }) => theme.fonts.regular};
   line-height: 1.3;
-  font-weight: ${({ weight }) => weight ?? 400};
+  font-weight: ${({ $weight }) => $weight ?? 400};
 `;
