@@ -25,6 +25,16 @@ interface CoffeeProps {
 }
 
 export function CardCoffee({ coffee }: CoffeeProps) {
+  const { addCoffeeToCart } = useCart();
+
+  function handleAddCoffeeToCart() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity: 1,
+    };
+    addCoffeeToCart(coffeeToAdd);
+  }
+
   const formattedPrice = PriceFormat(coffee.price);
   return (
     <CardCoffeeContainer>
@@ -46,7 +56,7 @@ export function CardCoffee({ coffee }: CoffeeProps) {
         </div>
         <AddCardWrapper>
           <QuantityInput />
-          <button>
+          <button onClick={handleAddCoffeeToCart}>
             <ShoppingCart size={22} weight="fill" />
           </button>
         </AddCardWrapper>
